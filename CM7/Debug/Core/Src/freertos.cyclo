@@ -1,0 +1,6 @@
+../Core/Src/freertos.c:138:6:MX_FREERTOS_Init	1
+../Core/Src/freertos.c:180:6:StartDefaultTask	2
+../Core/Src/freertos.c:269:6:timer_callback	3
+../Core/Src/freertos.c:283:6:SensorsPublished	1
+../Core/Src/freertos.c:349:6:xlr8_publish	2
+../Core/Src/freertos.c:356:10:calculate_average	2
