@@ -1,6 +1,6 @@
 Common/BNO086_SPI/BNO086_SPI.o: \
- /home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.c \
- /home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.h \
+ /home/tim/Documents/GitHub/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.c \
+ /home/tim/Documents/GitHub/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.h \
  ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
@@ -36,8 +36,8 @@ Common/BNO086_SPI/BNO086_SPI.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- /home/gun/STM32CubeIDE/carver/IMU_Interface/Common/SRAM4.h
-/home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.h:
+ /home/tim/Documents/GitHub/IMU_Interface/Common/SRAM4.h
+/home/tim/Documents/GitHub/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.h:
 ../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -73,4 +73,4 @@ Common/BNO086_SPI/BNO086_SPI.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-/home/gun/STM32CubeIDE/carver/IMU_Interface/Common/SRAM4.h:
+/home/tim/Documents/GitHub/IMU_Interface/Common/SRAM4.h:

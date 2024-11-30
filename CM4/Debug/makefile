@@ -63,8 +63,8 @@ all: main-build
 main-build: IMU_Interface_CM4.elf secondary-outputs
 
 # Tool invocations
-IMU_Interface_CM4.elf IMU_Interface_CM4.map: $(OBJS) $(USER_OBJS) /home/gun/STM32CubeIDE/carver/IMU_Interface/CM4/STM32H755ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "IMU_Interface_CM4.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/gun/STM32CubeIDE/carver/IMU_Interface/CM4/STM32H755ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMU_Interface_CM4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+IMU_Interface_CM4.elf IMU_Interface_CM4.map: $(OBJS) $(USER_OBJS) /home/tim/Documents/GitHub/IMU_Interface/CM4/STM32H755ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "IMU_Interface_CM4.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/tim/Documents/GitHub/IMU_Interface/CM4/STM32H755ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMU_Interface_CM4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

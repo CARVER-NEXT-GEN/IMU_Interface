@@ -1,7 +1,7 @@
 Common/BNO055_I2C/BNO055_config.o: \
- /home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO055_I2C/BNO055_config.c \
- /home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO055_I2C/BNO055_config.h \
- /home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO055_I2C/BNO055.h \
+ /home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055_config.c \
+ /home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055_config.h \
+ /home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055.h \
  ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
@@ -24,9 +24,6 @@ Common/BNO055_I2C/BNO055_config.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h \
- ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h \
- ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
- ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h \
@@ -39,8 +36,8 @@ Common/BNO055_I2C/BNO055_config.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h
-/home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO055_I2C/BNO055_config.h:
-/home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO055_I2C/BNO055.h:
+/home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055_config.h:
+/home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055.h:
 ../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -63,9 +60,6 @@ Common/BNO055_I2C/BNO055_config.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h:
-../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h:
-../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:
-../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h:

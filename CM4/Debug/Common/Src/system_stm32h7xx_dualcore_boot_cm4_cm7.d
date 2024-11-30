@@ -1,5 +1,5 @@
 Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.o: \
- /home/gun/STM32CubeIDE/carver/IMU_Interface/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c \
+ /home/tim/Documents/GitHub/IMU_Interface/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h755xx.h \
  ../../Drivers/CMSIS/Include/core_cm4.h \

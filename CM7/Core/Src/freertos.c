@@ -25,7 +25,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "adc.h"
 #include "dma.h"
 #include "iwdg.h"
 #include "usart.h"
@@ -40,14 +39,9 @@
 #include <rmw_microros/rmw_microros.h>
 
 #include <micro_ros_utilities/string_utilities.h>
-#include <std_msgs/msg/float32.h>
 #include <sensor_msgs/msg/imu.h>
 #include <sensor_msgs/msg/magnetic_field.h>
-#include <std_msgs/msg/float32_multi_array.h>
 #include <std_msgs/msg/float64_multi_array.h>
-
-#include <std_msgs/msg/u_int16.h>
-#include <std_msgs/msg/bool.h>
 
 #include <BNO086_SPI/BNO086_SPI.h>
 #include <BNO055_I2C/BNO055.h>
@@ -62,7 +56,6 @@ typedef StaticTask_t osStaticThreadDef_t;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define BUFFER_SIZE 40
 #define RCSOFTCHECK(fn) if (fn != RCL_RET_OK) {};
 /* USER CODE END PD */
 
@@ -75,9 +68,6 @@ typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE BEGIN Variables */
 rcl_node_t node;
 
-rcl_publisher_t xrl8_publisher;
-std_msgs__msg__UInt16 XRL8_msg;
-
 rcl_publisher_t f64array_pub;
 double f64array_data[35];
 std_msgs__msg__Float64MultiArray f64array_msg = {
@@ -89,8 +79,6 @@ int16_t sync_counter = 1000;
 extern BNO055_t IMU_055_FRTOS;
 extern BNO086_t IMU_086_FRTOS;
 
-uint16_t pinState = 0;
-uint16_t adc_buffer[BUFFER_SIZE];
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
@@ -137,7 +125,6 @@ void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
   */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
-	HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, BUFFER_SIZE);
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -211,13 +198,6 @@ void StartDefaultTask(void *argument)
 	const int timeout_ms = 1000;
 	int executor_num = 1;
 
-	const rosidl_message_type_support_t * uint16_type_support =
-	  ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, UInt16);
-
-
-//	const rosidl_message_type_support_t * bool_type_support =
-//	  ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Bool);
-
 	const rosidl_message_type_support_t * float64_multi_arr_type_support =
 	  ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float64MultiArray);
 
@@ -240,8 +220,6 @@ void StartDefaultTask(void *argument)
 	rclc_node_init_default(&node, "uros_H7_Node", "", &support);
 
 	// create publisher
-	rclc_publisher_init_best_effort(&xrl8_publisher, &node, uint16_type_support, "accl_publisher");
-//	rclc_publisher_init_best_effort(&emer_publisher, &node, bool_type_support, "H7_Emergency");
 	rclc_publisher_init_best_effort(&f64array_pub, &node, float64_multi_arr_type_support, "cubemx_imu_data");
 	// create subscriber
 
@@ -274,7 +252,6 @@ void timer_callback(rcl_timer_t * timer, int64_t last_call_time)
 			rmw_uros_sync_session(1000);
 			sync_counter += 1000;
 		}
-		xlr8_publish(calculate_average(adc_buffer, BUFFER_SIZE));
 		HAL_IWDG_Refresh(&hiwdg1);
 	}
 
@@ -346,19 +323,5 @@ void SensorsPublished(){
 
 }
 
-void xlr8_publish(uint16_t xlr8)
-{
-	XRL8_msg.data = xlr8;
-	rcl_ret_t ret = rcl_publish(&xrl8_publisher, &XRL8_msg, NULL);
-	if (ret != RCL_RET_OK) printf("Error publishing (line %d)\n", __LINE__);
-}
-
-uint16_t calculate_average(uint16_t *buffer, uint16_t length) {
-    uint32_t sum = 0;
-    for (uint16_t i = 0; i < length; i++) {
-        sum += buffer[i];
-    }
-    return (uint16_t)(sum / length);
-}
 /* USER CODE END Application */
 

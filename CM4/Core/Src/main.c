@@ -52,6 +52,9 @@
 BNO086_t BNO086;
 CalibrateStatus CALIBRATE;
 BNO055_t BNO055;
+uint16_t timeout_busy;
+uint16_t timeout_ok;
+HAL_SPI_StateTypeDef spi_status;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -113,7 +116,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // ================================================== BNO086 ==================================================//
-  	BNO086_Calibration(&BNO086, &CALIBRATE);
+//  	BNO086_Calibration(&BNO086, &CALIBRATE);
 	BNO086_Initialization(&BNO086);
 	BNO086_enableRotationVector(2500); //enable rotation vector at 400Hz (2500 microsecs)
 	//	  BNO086_enableGameRotationVector(11111); //enable Gaming Rotation vector at 90Hz (2500 microsecs)
@@ -154,7 +157,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 	if(htim == &htim2){
 		HAL_HSEM_DeactivateNotification(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_0));
-
+		spi_status = HAL_SPI_GetState(&hspi1);
 		if(BNO086_dataAvailable() == 1){
 			BNO086_getData(&BNO086, UNIT_RAD);
 			BNO086_SAVE_HSEM(&BNO086);
@@ -163,9 +166,19 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		HAL_HSEM_DeactivateNotification(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_1));
 		if (BNO055.flag == HAL_OK)
 			{
+				timeout_ok++;
+				timeout_busy = 0;
 				BNO055_Read_DMA(&BNO055, 0);
 				BNO055.flag = HAL_BUSY;
+			}
+		else
+		{
+			timeout_ok = 0;
+			timeout_busy++;
+		}
 
+		if(timeout_ok >= 500 || timeout_busy >= 500){
+			HAL_NVIC_SystemReset();
 		}
 	}
 

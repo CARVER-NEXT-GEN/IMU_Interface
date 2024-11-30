@@ -19,7 +19,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-#include "adc.h"
 #include "dma.h"
 #include "iwdg.h"
 #include "tim.h"
@@ -134,7 +133,6 @@ Error_Handler();
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_ADC1_Init();
   MX_IWDG1_Init();
   MX_TIM5_Init();
   MX_USART3_UART_Init();

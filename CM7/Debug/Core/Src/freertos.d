@@ -30,9 +30,6 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h \
- ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h \
- ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
- ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h \
@@ -47,8 +44,8 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
- ../Core/Inc/adc.h ../Core/Inc/main.h ../Core/Inc/dma.h \
- ../Core/Inc/iwdg.h ../Core/Inc/usart.h ../Core/Inc/gpio.h \
+ ../Core/Inc/dma.h ../Core/Inc/main.h ../Core/Inc/iwdg.h \
+ ../Core/Inc/usart.h ../Core/Inc/gpio.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/rcl/rcl.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/rcl/init.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/rcl/allocator.h \
@@ -196,11 +193,6 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/rosidl_runtime_c/string.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/rosidl_runtime_c/primitives_sequence.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/micro_ros_utilities/visibility_control.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/float32.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float32__struct.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float32__functions.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/rosidl_generator_c__visibility_control.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float32__type_support.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/imu.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/detail/imu__struct.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/header__struct.h \
@@ -213,27 +205,16 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/detail/magnetic_field__struct.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/detail/magnetic_field__functions.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/detail/magnetic_field__type_support.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/float32_multi_array.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float32_multi_array__struct.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/multi_array_layout__struct.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/multi_array_dimension__struct.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float32_multi_array__functions.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float32_multi_array__type_support.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/float64_multi_array.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float64_multi_array__struct.h \
+ ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/multi_array_layout__struct.h \
+ ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/multi_array_dimension__struct.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float64_multi_array__functions.h \
+ ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/rosidl_generator_c__visibility_control.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float64_multi_array__type_support.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/u_int16.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/u_int16__struct.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/u_int16__functions.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/u_int16__type_support.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/bool.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/bool__struct.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/bool__functions.h \
- ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/bool__type_support.h \
- /home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.h \
- /home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO055_I2C/BNO055.h \
- /home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO055_I2C/BNO055_config.h
+ /home/tim/Documents/GitHub/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.h \
+ /home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055.h \
+ /home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055_config.h
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -265,9 +246,6 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h:
-../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h:
-../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:
-../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h:
@@ -282,9 +260,8 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
-../Core/Inc/adc.h:
-../Core/Inc/main.h:
 ../Core/Inc/dma.h:
+../Core/Inc/main.h:
 ../Core/Inc/iwdg.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/gpio.h:
@@ -435,11 +412,6 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/rosidl_runtime_c/string.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/rosidl_runtime_c/primitives_sequence.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/micro_ros_utilities/visibility_control.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/float32.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float32__struct.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float32__functions.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/rosidl_generator_c__visibility_control.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float32__type_support.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/imu.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/detail/imu__struct.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/header__struct.h:
@@ -452,24 +424,13 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/detail/magnetic_field__struct.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/detail/magnetic_field__functions.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/detail/magnetic_field__type_support.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/float32_multi_array.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float32_multi_array__struct.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/multi_array_layout__struct.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/multi_array_dimension__struct.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float32_multi_array__functions.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float32_multi_array__type_support.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/float64_multi_array.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float64_multi_array__struct.h:
+../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/multi_array_layout__struct.h:
+../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/multi_array_dimension__struct.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float64_multi_array__functions.h:
+../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/rosidl_generator_c__visibility_control.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/float64_multi_array__type_support.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/u_int16.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/u_int16__struct.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/u_int16__functions.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/u_int16__type_support.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/bool.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/bool__struct.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/bool__functions.h:
-../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/std_msgs/msg/detail/bool__type_support.h:
-/home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.h:
-/home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO055_I2C/BNO055.h:
-/home/gun/STM32CubeIDE/carver/IMU_Interface/Common/BNO055_I2C/BNO055_config.h:
+/home/tim/Documents/GitHub/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.h:
+/home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055.h:
+/home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055_config.h:

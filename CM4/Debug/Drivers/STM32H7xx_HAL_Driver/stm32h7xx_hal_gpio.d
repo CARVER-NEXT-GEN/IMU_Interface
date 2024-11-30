@@ -1,5 +1,5 @@
 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o: \
- /home/gun/STM32CubeIDE/carver/IMU_Interface/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c \
+ /home/tim/Documents/GitHub/IMU_Interface/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
