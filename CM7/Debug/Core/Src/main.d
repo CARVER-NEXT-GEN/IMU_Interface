@@ -45,9 +45,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../Core/Inc/dma.h ../Core/Inc/main.h ../Core/Inc/iwdg.h \
  ../Core/Inc/tim.h ../Core/Inc/usart.h ../Core/Inc/gpio.h \
- /home/tim/Documents/GitHub/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.h \
- /home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055.h \
- /home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055_config.h
+ /home/carver/Documents/GitHub/CARVER_WS/firmware/H755/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.h \
+ /home/carver/Documents/GitHub/CARVER_WS/firmware/H755/IMU_Interface/Common/BNO055_I2C/BNO055.h \
+ /home/carver/Documents/GitHub/CARVER_WS/firmware/H755/IMU_Interface/Common/BNO055_I2C/BNO055_config.h
 ../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -99,6 +99,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/tim.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/gpio.h:
-/home/tim/Documents/GitHub/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.h:
-/home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055.h:
-/home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055_config.h:
+/home/carver/Documents/GitHub/CARVER_WS/firmware/H755/IMU_Interface/Common/BNO086_SPI/BNO086_SPI.h:
+/home/carver/Documents/GitHub/CARVER_WS/firmware/H755/IMU_Interface/Common/BNO055_I2C/BNO055.h:
+/home/carver/Documents/GitHub/CARVER_WS/firmware/H755/IMU_Interface/Common/BNO055_I2C/BNO055_config.h:

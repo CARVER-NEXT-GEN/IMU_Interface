@@ -1,7 +1,7 @@
 Common/BNO055_I2C/BNO055_config.o: \
- /home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055_config.c \
- /home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055_config.h \
- /home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055.h \
+ /home/carver/Documents/GitHub/CARVER_WS/firmware/H755/IMU_Interface/Common/BNO055_I2C/BNO055_config.c \
+ /home/carver/Documents/GitHub/CARVER_WS/firmware/H755/IMU_Interface/Common/BNO055_I2C/BNO055_config.h \
+ /home/carver/Documents/GitHub/CARVER_WS/firmware/H755/IMU_Interface/Common/BNO055_I2C/BNO055.h \
  ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
@@ -36,8 +36,8 @@ Common/BNO055_I2C/BNO055_config.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h
-/home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055_config.h:
-/home/tim/Documents/GitHub/IMU_Interface/Common/BNO055_I2C/BNO055.h:
+/home/carver/Documents/GitHub/CARVER_WS/firmware/H755/IMU_Interface/Common/BNO055_I2C/BNO055_config.h:
+/home/carver/Documents/GitHub/CARVER_WS/firmware/H755/IMU_Interface/Common/BNO055_I2C/BNO055.h:
 ../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
