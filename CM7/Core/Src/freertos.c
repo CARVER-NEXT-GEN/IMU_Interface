@@ -74,7 +74,7 @@ std_msgs__msg__Float64MultiArray f64array_msg = {
     .data = { .data = f64array_data, .capacity = 35, .size = 35 }
 };
 
-int16_t sync_counter = 1000;
+int8_t sync_counter = 0;
 
 extern BNO055_t IMU_055_FRTOS;
 extern BNO086_t IMU_086_FRTOS;
@@ -248,9 +248,9 @@ void timer_callback(rcl_timer_t * timer, int64_t last_call_time)
 {
 	if (timer != NULL) {
 		SensorsPublished();
-		if (uwTick >= sync_counter) {  // Sync session at lower frequency
+		if (sync_counter++ >= 254) {  // Sync session at lower frequency
 			rmw_uros_sync_session(1000);
-			sync_counter += 1000;
+			sync_counter = 0;
 		}
 		HAL_IWDG_Refresh(&hiwdg1);
 	}
