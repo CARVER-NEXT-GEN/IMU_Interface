@@ -51,7 +51,7 @@
 
 /* USER CODE BEGIN PV */
 BNO055_t IMU_055_FRTOS;
-BNO086_t IMU_086_FRTOS;
+//BNO086_t IMU_086_FRTOS;
 int32_t imu = 0;
 /* USER CODE END PV */
 
@@ -225,10 +225,10 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void HAL_HSEM_FreeCallback(uint32_t SemMask){
 
-	if (SemMask & (1 << HSEM_ID_0)) {
-		HAL_HSEM_ActivateNotification(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_0));
-
-	    }
+//	if (SemMask & (1 << HSEM_ID_0)) {
+//		HAL_HSEM_ActivateNotification(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_0));
+//
+//	    }
 
 	if (SemMask & (1 << HSEM_ID_1)) {
 		HAL_HSEM_ActivateNotification(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_1));
@@ -254,7 +254,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   }
   /* USER CODE BEGIN Callback 1 */
   if(htim == &htim5){
-	  BNO086_READ_HSEM(&IMU_086_FRTOS);
+//	  BNO086_READ_HSEM(&IMU_086_FRTOS);
 	  BNO055_READ_HSEM(&IMU_055_FRTOS);
   }
   /* USER CODE END Callback 1 */

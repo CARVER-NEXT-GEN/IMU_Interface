@@ -74,10 +74,10 @@ std_msgs__msg__Float64MultiArray f64array_msg = {
     .data = { .data = f64array_data, .capacity = 35, .size = 35 }
 };
 
-int8_t sync_counter = 0;
+uint32_t sync_counter = 0;
 
 extern BNO055_t IMU_055_FRTOS;
-extern BNO086_t IMU_086_FRTOS;
+//extern BNO086_t IMU_086_FRTOS;
 
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
@@ -249,7 +249,14 @@ void timer_callback(rcl_timer_t * timer, int64_t last_call_time)
 	if (timer != NULL) {
 		SensorsPublished();
 		if (sync_counter++ >= 254) {  // Sync session at lower frequency
-			rmw_uros_sync_session(1000);
+			if (rmw_uros_ping_agent(100, 1) == RMW_RET_OK) {
+				rmw_uros_sync_session(1000); // Sync if agent is reachable
+			}
+			else {
+				// If the agent is not reachable, let the watchdog reset the MCU
+				NVIC_SystemReset();
+			}
+//			rmw_uros_sync_session(1000);
 			sync_counter = 0;
 		}
 		HAL_IWDG_Refresh(&hiwdg1);
@@ -260,25 +267,25 @@ void timer_callback(rcl_timer_t * timer, int64_t last_call_time)
 void SensorsPublished(){
 
 
-	// IMU_086 acceleration
-	f64array_msg.data.data[0] = IMU_086_FRTOS.acceleration.x;
-	f64array_msg.data.data[1] = IMU_086_FRTOS.acceleration.y;
-	f64array_msg.data.data[2] = IMU_086_FRTOS.acceleration.z;
-
-	// IMU_086 linear acceleration
-	f64array_msg.data.data[3] = IMU_086_FRTOS.linear_acceleration.x;
-	f64array_msg.data.data[4] = IMU_086_FRTOS.linear_acceleration.y;
-	f64array_msg.data.data[5] = IMU_086_FRTOS.linear_acceleration.z;
-
-	// IMU_086 angular velocity
-	f64array_msg.data.data[6] = IMU_086_FRTOS.angular_velocity.x;
-	f64array_msg.data.data[7] = IMU_086_FRTOS.angular_velocity.y;
-	f64array_msg.data.data[8] = IMU_086_FRTOS.angular_velocity.z;
-
-	// IMU_086 magnetometer
-	f64array_msg.data.data[9] = IMU_086_FRTOS.magnetometer.x;
-	f64array_msg.data.data[10] = IMU_086_FRTOS.magnetometer.y;
-	f64array_msg.data.data[11] = IMU_086_FRTOS.magnetometer.z;
+//	// IMU_086 acceleration
+//	f64array_msg.data.data[0] = IMU_086_FRTOS.acceleration.x;
+//	f64array_msg.data.data[1] = IMU_086_FRTOS.acceleration.y;
+//	f64array_msg.data.data[2] = IMU_086_FRTOS.acceleration.z;
+//
+//	// IMU_086 linear acceleration
+//	f64array_msg.data.data[3] = IMU_086_FRTOS.linear_acceleration.x;
+//	f64array_msg.data.data[4] = IMU_086_FRTOS.linear_acceleration.y;
+//	f64array_msg.data.data[5] = IMU_086_FRTOS.linear_acceleration.z;
+//
+//	// IMU_086 angular velocity
+//	f64array_msg.data.data[6] = IMU_086_FRTOS.angular_velocity.x;
+//	f64array_msg.data.data[7] = IMU_086_FRTOS.angular_velocity.y;
+//	f64array_msg.data.data[8] = IMU_086_FRTOS.angular_velocity.z;
+//
+//	// IMU_086 magnetometer
+//	f64array_msg.data.data[9] = IMU_086_FRTOS.magnetometer.x;
+//	f64array_msg.data.data[10] = IMU_086_FRTOS.magnetometer.y;
+//	f64array_msg.data.data[11] = IMU_086_FRTOS.magnetometer.z;
 
 	// IMU_055 acceleration
 	f64array_msg.data.data[12] = IMU_055_FRTOS.accel.x;
@@ -306,10 +313,10 @@ void SensorsPublished(){
 	f64array_msg.data.data[26] = IMU_055_FRTOS.euler.yaw;
 
 	// IMU_086 quaternion
-	f64array_msg.data.data[27] = IMU_086_FRTOS.quaternion.i;
-	f64array_msg.data.data[28] = IMU_086_FRTOS.quaternion.j;
-	f64array_msg.data.data[29] = IMU_086_FRTOS.quaternion.k;
-	f64array_msg.data.data[30] = IMU_086_FRTOS.quaternion.w;
+//	f64array_msg.data.data[27] = IMU_086_FRTOS.quaternion.i;
+//	f64array_msg.data.data[28] = IMU_086_FRTOS.quaternion.j;
+//	f64array_msg.data.data[29] = IMU_086_FRTOS.quaternion.k;
+//	f64array_msg.data.data[30] = IMU_086_FRTOS.quaternion.w;
 
 	// IMU_055 quaternion
 	f64array_msg.data.data[31] = IMU_055_FRTOS.quat.x;

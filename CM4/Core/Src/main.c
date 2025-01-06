@@ -55,6 +55,8 @@ BNO055_t BNO055;
 uint16_t timeout_busy;
 uint16_t timeout_ok;
 HAL_SPI_StateTypeDef spi_status;
+
+extern
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -92,6 +94,7 @@ int main(void)
   HAL_PWREx_EnterSTOPMode(PWR_MAINREGULATOR_ON, PWR_STOPENTRY_WFE, PWR_D2_DOMAIN);
   /* Clear HSEM flag */
   __HAL_HSEM_CLEAR_FLAG(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_0));
+  __HAL_HSEM_CLEAR_FLAG(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_1));
 
 /* USER CODE END Boot_Mode_Sequence_1 */
   /* MCU Configuration--------------------------------------------------------*/
@@ -117,16 +120,16 @@ int main(void)
 
   // ================================================== BNO086 ==================================================//
 //  	BNO086_Calibration(&BNO086, &CALIBRATE);
-	BNO086_Initialization(&BNO086);
-	BNO086_enableRotationVector(2500); //enable rotation vector at 400Hz (2500 microsecs)
-	//	  BNO086_enableGameRotationVector(11111); //enable Gaming Rotation vector at 90Hz (2500 microsecs)
+//	BNO086_Initialization(&BNO086);
+//	BNO086_enableRotationVector(2500); //enable rotation vector at 400Hz (2500 microsecs)
+//    BNO086_enableGameRotationVector(11111); //enable Gaming Rotation vector at 90Hz (2500 microsecs)
+//
+//	BNO086_enableAccelerometer(2000); //enable Accelerometer at 400Hz (2500 microsecs)
+//	BNO086_enableLinearAccelerometer(2500); //enable Linear Accelerometer at 400Hz (2500 microsecs)
+//	BNO086_enableGyro(2500); //enable Gyrometer  at 400Hz (2500 microsecs)
+//	BNO086_enableMagnetometer(10000); //enable Magnetometer at 100Hz (10000 microsecs)
 
-	BNO086_enableAccelerometer(2000); //enable Accelerometer at 400Hz (2500 microsecs)
-	BNO086_enableLinearAccelerometer(2500); //enable Linear Accelerometer at 400Hz (2500 microsecs)
-	BNO086_enableGyro(2500); //enable Gyrometer  at 400Hz (2500 microsecs)
-	BNO086_enableMagnetometer(10000); //enable Magnetometer at 100Hz (10000 microsecs)
-
-	// ================================================== BNO055 ==================================================//
+//	// ================================================== BNO055 ==================================================//
   HALCHECK(BNO055_Init(&BNO055, &hi2c1, 0, NDOF))
 
   #ifdef BNO_CALIB_ON // For Calibration, Enable at Common/BNO055_I2C/BNO055_config.h
@@ -156,12 +159,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 
 	if(htim == &htim2){
-		HAL_HSEM_DeactivateNotification(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_0));
-		spi_status = HAL_SPI_GetState(&hspi1);
-		if(BNO086_dataAvailable() == 1){
-			BNO086_getData(&BNO086, UNIT_RAD);
-			BNO086_SAVE_HSEM(&BNO086);
-		}
+//		HAL_HSEM_DeactivateNotification(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_0));
+//		spi_status = HAL_SPI_GetState(&hspi1);
+//		if(BNO086_dataAvailable() == 1){
+//			BNO086_getData(&BNO086, UNIT_RAD);
+//			BNO086_SAVE_HSEM(&BNO086, spi_status);
+//		}
 
 		HAL_HSEM_DeactivateNotification(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_1));
 		if (BNO055.flag == HAL_OK)

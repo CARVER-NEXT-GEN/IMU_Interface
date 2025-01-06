@@ -259,7 +259,7 @@ float getPitch(uint8_t unit);
 float getYaw(uint8_t unit);
 
 void BNO086_getData(BNO086_t *bno, RPY_UNIT rpy_unit);
-void BNO086_SAVE_HSEM(BNO086_t *bno);
+void BNO086_SAVE_HSEM(BNO086_t *bno, uint8_t status);
 void BNO086_READ_HSEM(BNO086_t *bno);
 
 

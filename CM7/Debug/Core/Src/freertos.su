@@ -1,4 +1,5 @@
+../../Drivers/CMSIS/Include/core_cm7.h:2156:34:__NVIC_SystemReset	4	static,ignoring_inline_asm
 ../Core/Src/freertos.c:126:6:MX_FREERTOS_Init	8	static
 ../Core/Src/freertos.c:167:6:StartDefaultTask	456	static
 ../Core/Src/freertos.c:247:6:timer_callback	24	static
-../Core/Src/freertos.c:260:6:SensorsPublished	8	static
+../Core/Src/freertos.c:267:6:SensorsPublished	8	static

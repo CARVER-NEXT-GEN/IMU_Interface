@@ -1122,7 +1122,7 @@ void BNO086_getData(BNO086_t *bno, RPY_UNIT rpy_unit){
 
 }
 
-void BNO086_SAVE_HSEM(BNO086_t *bno){
+void BNO086_SAVE_HSEM(BNO086_t *bno, uint8_t status){
 	if(HAL_HSEM_FastTake(HSEM_ID_0) == HAL_OK){
 		  SRAM4_BNO086->Data[0] = bno->euler_angle.roll;
 		  SRAM4_BNO086->Data[1] = bno->euler_angle.pitch;
@@ -1152,7 +1152,7 @@ void BNO086_SAVE_HSEM(BNO086_t *bno){
 		  SRAM4_BNO086->Data[16] = bno->euler_angle.roll;
 		  SRAM4_BNO086->Data[17] = bno->euler_angle.pitch;
 		  SRAM4_BNO086->Data[18] = bno->euler_angle.yaw;
-		  SRAM4_BNO086->State1 = 0;
+		  SRAM4_BNO086->State1 = status;
 
 		  HAL_HSEM_Release(HSEM_ID_0,0);
 		}
@@ -1291,7 +1291,10 @@ void BNO086_READ_HSEM(BNO086_t *bno){
 		bno->euler_angle.roll = SRAM4_BNO086->Data[16];
 		bno->euler_angle.pitch = SRAM4_BNO086->Data[17];
 		bno->euler_angle.yaw = SRAM4_BNO086->Data[18];
-		SRAM4_BNO086->State1 = 1;
+		if(SRAM4_BNO086->State1 == 0){
+			HAL_NVIC_SystemReset();
+		}
+
         HAL_HSEM_Release(HSEM_ID_0, 0);
     }
 }
